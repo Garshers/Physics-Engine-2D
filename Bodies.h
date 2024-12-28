@@ -158,5 +158,4 @@ public:
 		LiquidDisplacement = FlatVector(0.0f, 0.0f);
 		force = FlatVector(0.0f, 0.0f);
 	}
-
 };
