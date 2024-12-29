@@ -43,8 +43,8 @@ void CreateBoundaries(World& MyWorld) {
 void CreateBodies(World& MyWorld) {
     CreateBoundaries(MyWorld);
 
-    for (int i = 0; i <20; i++) {
-        FlatVector Position = FlatVector(RandomFloatInRange(-10, 10), RandomFloatInRange(-18, 18));
+    for (int i = 0; i <10; i++) {
+        FlatVector Position = FlatVector(RandomFloatInRange(-10, 10), RandomFloatInRange(-15, 15));
         float radius = RandomFloatInRange(0.3f,1.1f);
         if (i % 2) {
             MyWorld.AddBody(Bodies::CreateCircleBody(Position, radius, 0.8f, 0, Materials::CreateBirch()));
@@ -55,11 +55,11 @@ void CreateBodies(World& MyWorld) {
         else { MyWorld.AddBody(Bodies::CreateCircleBody(Position, radius, 0.8f, 0, Materials::CreateSteel())); }
         
     }
-    for (int j = 0; j < 0; j++) {
-        FlatVector Position = FlatVector(RandomFloatInRange(-10, 10), RandomFloatInRange(-18, 18));
+    for (int j = 0; j < 5; j++) {
+        FlatVector Position = FlatVector(RandomFloatInRange(-10, 10), RandomFloatInRange(-10, 10));
         float radiusBox = RandomFloatInRange(1, 2);
         auto body = Bodies::CreatePolygonBody(4, Position, radiusBox, 0.4f, 0, Materials::CreateBirch());
-        body.Rotate(3.1415 * j / 3 + j);
+        //body.Rotate(3.1415 * j / 3 + j);
         //body.Rotate(3.1415 /4);
         MyWorld.AddBody(body);
     }
@@ -75,8 +75,8 @@ void CreateBodies(World& MyWorld) {
         //body.Rotate(3.1415 /4);
         MyWorld.AddBody(body);
     }
-    std::vector<FlatVector> WaterBoundries = { FlatVector(-20.0f,0.0f), FlatVector(20.0f,0.0f), FlatVector(20.0f,-15.0f), FlatVector(-20.0f,-15.0f)};
-    MyWorld.AddLiquid(Liquids::CreateBodyOfWater(WaterBoundries));
+    //std::vector<FlatVector> WaterBoundries = { FlatVector(-20.0f,0.0f), FlatVector(20.0f,0.0f), FlatVector(20.0f,-15.0f), FlatVector(-20.0f,-15.0f)};
+    //MyWorld.AddLiquid(Liquids::CreateBodyOfWater(WaterBoundries));
 }
 
 void DrawCircle(const FlatVector& center, float radius, std::vector<float> color) {

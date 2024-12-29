@@ -10,6 +10,11 @@ This project is a simple 2D physics engine implemented in C++. It uses OpenGL fo
 - **Rendering**: Render the bodies and fluids using OpenGL.
 - **Camera Control**: Simple camera control with mouse and keyboard input.
 
+## Examples
+
+![Example Circles_in_water](images/Circles_in_water.gif)
+![Example Circles_no_water](images/Circles_no_water.gif)
+
 ## Prerequisites
 
 - **C++ Compiler**: GCC, Clang, or MSVC.

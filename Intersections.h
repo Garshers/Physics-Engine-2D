@@ -48,15 +48,13 @@ public:
             ProjectVertices(centerA, verticesA, axis, minA, maxA);
             ProjectVertices(centerB, verticesB, axis, minB, maxB);
 
-            if (minA > maxB || minB > maxA)
-            {
+            if (minA > maxB || minB > maxA){
                 return false;
             }
 
             float axisDepth = std::min(maxB - minA, maxA - minB);
 
-            if (axisDepth < depth)
-            {
+            if (axisDepth < depth){
                 depth = axisDepth;
                 normal = axis;
             }
@@ -75,22 +73,21 @@ public:
             ProjectVertices(centerA, verticesA, axis, minA, maxA);
             ProjectVertices(centerB, verticesB, axis, minB, maxB);
 
-            if (minA > maxB || minB > maxA)
-            {
+            if (minA > maxB || minB > maxA){
                 return false;
             }
 
             float axisDepth = std::min(maxB - minA, maxA - minB);
 
-            if (axisDepth < depth)
-            {
+            if (axisDepth < depth){
                 depth = axisDepth;
                 normal = axis;  
             }
         }
 
         FlatVector centerBtoA = centerB - centerA;
-        if (FlatVector::Dot(normal*depth, centerBtoA) > 0)
+        FlatVector overlap = normal * depth;
+        if (FlatVector::Dot(overlap, centerBtoA) > 0)
         {
             normal = -normal;
         }
@@ -118,15 +115,13 @@ public:
             ProjectVertices(polygonCenter, vertices, axis, minA, maxA);
             ProjectCircle(circleCenter, circleRadius, axis, minB, maxB);
 
-            if (minA > maxB || minB > maxA)
-            {
+            if (minA > maxB || minB > maxA){
                 return false;
             }
 
             axisDepth = std::min(maxB - minA, maxA - minB);
 
-            if (axisDepth < depth)
-            {
+            if (axisDepth < depth){
                 depth = axisDepth;
 
                 if (axisDepth == maxB - minA)
@@ -288,7 +283,7 @@ private:
                     collisionPoint0 = ContactPoint;
                     contactCount = 1;
                 }
-                if (contactCount = 2) return;
+                if (contactCount == 2) return;
             }
         }
     }

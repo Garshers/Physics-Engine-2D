@@ -34,9 +34,15 @@ public:
 		vec.y /= b;
 	}
 
-	static void NormalizedVector(FlatVector& vec) {
-		DivideVector(vec, VecLen(vec));
-	}
+    static void NormalizedVector(FlatVector& vec) {
+        float length = VecLen(vec);
+        if (length > std::numeric_limits<float>::epsilon()) { // Ensure non-zero length
+            DivideVector(vec, length);
+        }
+        else {
+            vec = FlatVector(0.0f, 0.0f); // Normalize zero vector to zero vector
+        }
+    }
 
     static float Dot(const FlatVector& a, const FlatVector& b) {
         return a.x * b.x + a.y * b.y;
